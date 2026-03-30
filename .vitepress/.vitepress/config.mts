@@ -5,8 +5,8 @@ import packageJson from "../../package.json";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "_ts-template",
-  description: "A project template with a ready-to-use structure.",
+  title: "rolldown-plugin-package-json",
+  description: "A powerful and flexible plugin for Rolldown that enhances package.json handling.",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     externalLinkIcon: true,
@@ -26,8 +26,8 @@ export default defineConfig({
       { text: "Guide", link: "/guide" },
       { text: "Reference", link: "/reference" },
       { text: packageJson.version, items: [
-        { text: "Repository", link: "https://github.com/OGS-GmbH/_ts-template" },
-        { text: "Changelog", link: "https://github.com/OGS-GmbH/_ts-template/blob/main/CHANGELOG.md" },
+        { text: "Repository", link: "https://github.com/OGS-GmbH/rolldown-plugin-package-json" },
+        { text: "Changelog", link: "https://github.com/OGS-GmbH/rolldown-plugin-package-json/blob/main/CHANGELOG.md" },
         { text: "Contributing", link: "/other/contributing" },
       ] }
     ],
@@ -74,10 +74,10 @@ export default defineConfig({
     [ "link", { rel: "icon", type: "image/svg+xml", href: "https://raw.githubusercontent.com/OGS-GmbH/.github/refs/tags/v1.1.0/docs/assets/favicon/favicon.svg" } ],
     [ "link", { rel: "icon", type: "image/png", href: "https://raw.githubusercontent.com/OGS-GmbH/.github/refs/tags/v1.1.0/docs/assets/favicon/favicon-96x96.png", sizes: "96x96" } ]
   ],
-  base: "/_ts-template/",
+  base: "/rolldown-plugin-package-json/",
   srcDir: "../dist/vitepress-src",
   outDir: "../dist/docs",
-  titleTemplate: ":title - OGS _ts-template",
+  titleTemplate: ":title - OGS rolldown-plugin-package-json",
   cleanUrls: true,
   appearance: true,
   markdown: {
