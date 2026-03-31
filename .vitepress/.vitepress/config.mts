@@ -5,6 +5,7 @@ import packageJson from "../../package.json";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  ignoreDeadLinks: true,
   title: "rolldown-plugin-package-json",
   description: "A powerful and flexible plugin for Rolldown that enhances package.json handling.",
   themeConfig: {
