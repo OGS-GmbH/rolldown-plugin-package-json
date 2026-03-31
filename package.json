@@ -52,6 +52,7 @@
     "ci:docs:main:vitepress": "bash ./.vitepress/scripts/pre-vitepress.sh && vitepress build .vitepress",
     "ci:pr:commitlint:main:commitlint": "commitlint",
     "ci:pr:lint:main:eslint": "eslint .",
+    "ci:pr:lint:main:oxfmt": "oxfmt --check",
     "ci:pr:lint:main:oxlint": "oxlint",
     "commit": "commit",
     "prepare": "husky",
