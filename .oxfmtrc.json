@@ -1,0 +1,8 @@
+{
+  "ignorePatterns": ["dist/**"],
+  "bracketSameLine": true,
+  "singleAttributePerLine ": true,
+  "sortImports": { "newlinesBetween": false },
+  "sortPackageJson": { "sortScripts": true },
+  "trailingComma": "none"
+}

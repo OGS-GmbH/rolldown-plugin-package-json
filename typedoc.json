@@ -7,14 +7,8 @@
   "entryPointStrategy": "expand",
   "excludePrivate": true,
   "excludeProtected": true,
-  "plugin": [
-    "typedoc-plugin-markdown",
-    "typedoc-plugin-frontmatter"
-  ],
-  "frontmatterGlobals": {
-    "prev": false,
-    "next": false
-  },
+  "plugin": ["typedoc-plugin-markdown", "typedoc-plugin-frontmatter"],
+  "frontmatterGlobals": { "prev": false, "next": false },
   "lang": "en",
   "entryFileName": "index.md",
   "modulesFileName": "modules.md",
@@ -22,11 +16,7 @@
   "hidePageHeader": true,
   "hideBreadcrumbs": true,
   "hidePageTitle": false,
-  "pageTitleTemplates": {
-    "index": "Reference",
-    "member": "{name}",
-    "module": "{name}"
-  },
+  "pageTitleTemplates": { "index": "Reference", "member": "{name}", "module": "{name}" },
   "useCustomAnchors": false,
   "readme": "none",
   "useCodeBlocks": true,
