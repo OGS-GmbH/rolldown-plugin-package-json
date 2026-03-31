@@ -1,6 +1,6 @@
 {
   "name": "@ogs-gmbh/rolldown-plugin-package-json",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A powerful and flexible plugin for Rolldown that enhances package.json handling.",
   "keywords": [
     "build-automation",
