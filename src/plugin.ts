@@ -1,12 +1,12 @@
+import fs from "node:fs";
+import path from "node:path";
+import { merge } from "es-toolkit";
 import type { NormalizedOutputOptions, OutputBundle, Plugin, PluginContext } from "rolldown";
 import { PackageJson } from "type-fest";
 import { getExportsFromBundle } from "./exports";
-import { merge } from "es-toolkit";
-import path from "node:path";
-import fs from "node:fs";
+import { defaultCleanProperties } from "./options";
 import { Options } from "./types";
 import { isEnabled } from "./utils";
-import { defaultCleanProperties } from "./options";
 
 const fileName: string = "package.json";
 
@@ -20,27 +20,20 @@ const fileName: string = "package.json";
  * @author Simon Kovtyk
  * @category Plugin
  */
-function packageJsonPlugin (
-  options?: Options
-): Plugin {
-  const metaPath = path.join(
-    process.cwd(),
-    fileName
-  );
+function packageJsonPlugin(options?: Options): Plugin {
+  const metaPath = path.join(process.cwd(), fileName);
 
-  const metaContent = fs.readFileSync(metaPath, {
-    encoding: "utf8",
-    flag: "r"
-  });
+  const metaContent = fs.readFileSync(metaPath, { encoding: "utf8", flag: "r" });
 
   const meta = JSON.parse(metaContent) as PackageJson;
 
   if (isEnabled(options?.clean)) {
-    const properties = typeof options?.clean === "boolean"
-      ? defaultCleanProperties
-      : options?.clean?.properties
-        ? options.clean.properties
-        : defaultCleanProperties;
+    const properties =
+      typeof options?.clean === "boolean"
+        ? defaultCleanProperties
+        : options?.clean?.properties
+          ? options.clean.properties
+          : defaultCleanProperties;
 
     properties.map((property) => {
       delete meta[property];
@@ -48,9 +41,9 @@ function packageJsonPlugin (
   }
 
   if (
-    isEnabled(options?.exports)
-    && typeof options?.exports !== "boolean"
-    && options?.exports?.override
+    isEnabled(options?.exports) &&
+    typeof options?.exports !== "boolean" &&
+    options?.exports?.override
   )
     meta.exports = options.exports.override;
 
@@ -62,19 +55,15 @@ function packageJsonPlugin (
       bundle: OutputBundle
     ): Promise<void> {
       if (
-        isEnabled(options?.exports)
-        && (
-          typeof options?.exports === "boolean"
-          || options?.exports?.override === undefined
-        )
+        isEnabled(options?.exports) &&
+        (typeof options?.exports === "boolean" || options?.exports?.override === undefined)
       ) {
         const generatedExports = getExportsFromBundle.call(this, bundle);
 
         if (meta.exports) {
           // @ts-ignore
           meta.exports = merge(meta.exports, generatedExports);
-        } else
-          meta.exports = generatedExports;
+        } else meta.exports = generatedExports;
       }
 
       const finalMetaContent = JSON.stringify(meta, null, 2);
@@ -86,14 +75,10 @@ function packageJsonPlugin (
         source: finalMetaContent
       });
     },
-    buildEnd: function (
-      this: PluginContext
-    ) {
+    buildEnd: function (this: PluginContext) {
       this.info("'package.json' successfully created!");
     }
-  }
+  };
 }
 
-export {
-  packageJsonPlugin
-}
+export { packageJsonPlugin };

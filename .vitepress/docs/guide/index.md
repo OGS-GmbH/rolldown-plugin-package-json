@@ -50,10 +50,7 @@ export default defineConfig({
       clean: true,
       exports: {
         enabled: true,
-        override: {
-          ".": "./public-api.mjs",
-          "./feature-a": "feature-a.mjs"
-        }
+        override: { ".": "./public-api.mjs", "./feature-a": "feature-a.mjs" }
       }
     })
   ]

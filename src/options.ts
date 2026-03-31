@@ -1,9 +1,3 @@
-const defaultCleanProperties: string[] = [
-  "scripts",
-  "packageManager",
-  "publishConfig"
-]
+const defaultCleanProperties: string[] = ["scripts", "packageManager", "publishConfig"];
 
-export {
-  defaultCleanProperties
-}
+export { defaultCleanProperties };

@@ -3,26 +3,26 @@
   "version": "1.0.0",
   "description": "A powerful and flexible plugin for Rolldown that enhances package.json handling.",
   "keywords": [
-    "plugin",
-    "bundler",
-    "package.json",
-    "exports",
-    "esm",
-    "cjs",
-    "build-tool",
-    "tooling",
-    "dependency",
-    "external",
-    "tree-shaking",
-    "module-resolution",
-    "typescript",
-    "node",
-    "library",
-    "packaging",
     "build-automation",
-    "transform",
+    "build-tool",
+    "bundler",
+    "cjs",
+    "dependency",
+    "esm",
+    "exports",
+    "external",
+    "library",
+    "module-resolution",
+    "node",
+    "npm",
+    "package.json",
+    "packaging",
+    "plugin",
     "publish",
-    "npm"
+    "tooling",
+    "transform",
+    "tree-shaking",
+    "typescript"
   ],
   "homepage": "https://ogs-gmbh.github.io/rolldown-plugin-package-json/",
   "bugs": "https://github.com/OGS-GmbH/rolldown-plugin-package-json/issues",
@@ -35,14 +35,17 @@
       "url": "https://simonkov.dev"
     }
   ],
+  "repository": "https://github.com/OGS-GmbH/rolldown-plugin-package-json",
+  "files": [
+    "./dist/main"
+  ],
+  "type": "module",
   "exports": {
     ".": {
       "types": "./dist/main/public-api.d.ts",
       "default": "./dist/main/public-api.mjs"
     }
   },
-  "repository": "https://github.com/OGS-GmbH/rolldown-plugin-package-json",
-  "type": "module",
   "scripts": {
     "ci:build:main:production": "tsdown",
     "ci:docs:extract:typedoc": "typedoc",
@@ -72,7 +75,7 @@
     "eslint": "^9.39.4",
     "husky": "^9.1.7",
     "lint-staged": "^16.4.0",
-    "npm-package-json-lint": "^9.1.0",
+    "oxfmt": "^0.42.0",
     "oxlint": "^1.57.0",
     "rolldown": "1.0.0-rc.12",
     "sass-embedded": "^1.98.0",
