@@ -1,5 +1,5 @@
 {
-  "ignorePatterns": ["dist/**", "CHANGELOG.md"],
+  "ignorePatterns": ["dist/**", "CHANGELOG.md", ".release-please/**"],
   "bracketSameLine": true,
   "singleAttributePerLine ": true,
   "sortImports": { "newlinesBetween": false },
