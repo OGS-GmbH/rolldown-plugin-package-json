@@ -37,6 +37,7 @@ To get a starting point, simply refer to our documentation at [ogs-gmbh.github.i
 ### Installation
 
 Using npm:
+
 ```sh
 $ npm add -D @ogs-gmbh/rolldown-plugin-package-json
 ```
