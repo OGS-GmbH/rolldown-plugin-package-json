@@ -61,7 +61,8 @@
     "vitepress:preview": "vitepress preview .vitepress"
   },
   "dependencies": {
-    "es-toolkit": "^1.45.1"
+    "es-toolkit": "^1.45.1",
+    "rolldown": "1.0.0-rc.12"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.5.0",
@@ -79,7 +80,6 @@
     "lint-staged": "^16.4.0",
     "oxfmt": "^0.42.0",
     "oxlint": "^1.57.0",
-    "rolldown": "1.0.0-rc.12",
     "sass-embedded": "^1.98.0",
     "tsdown": "^0.21.7",
     "type-fest": "^5.5.0",
