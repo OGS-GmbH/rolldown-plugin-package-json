@@ -1,4 +1,4 @@
-import { WithEnabled } from "./types";
+import { WithEnabled } from "./types.js";
 
 function isEnabled<T extends boolean | WithEnabled<unknown> | undefined>(option: T): boolean {
   if (option === undefined) return false;

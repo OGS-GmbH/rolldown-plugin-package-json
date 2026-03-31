@@ -37,13 +37,14 @@
   ],
   "repository": "https://github.com/OGS-GmbH/rolldown-plugin-package-json",
   "files": [
-    "./dist/main"
+    "./dist/main",
+    "CHANGELOG.md"
   ],
   "type": "module",
   "exports": {
     ".": {
       "types": "./dist/main/public-api.d.ts",
-      "default": "./dist/main/public-api.mjs"
+      "default": "./dist/main/public-api.js"
     }
   },
   "scripts": {

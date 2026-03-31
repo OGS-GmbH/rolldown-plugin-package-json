@@ -3,10 +3,10 @@ import path from "node:path";
 import { merge } from "es-toolkit";
 import type { NormalizedOutputOptions, OutputBundle, Plugin, PluginContext } from "rolldown";
 import { PackageJson } from "type-fest";
-import { getExportsFromBundle } from "./exports";
-import { defaultCleanProperties } from "./options";
-import { Options } from "./types";
-import { isEnabled } from "./utils";
+import { getExportsFromBundle } from "./exports.js";
+import { defaultCleanProperties } from "./options.js";
+import { Options } from "./types.js";
+import { isEnabled } from "./utils.js";
 
 const fileName: string = "package.json";
 
@@ -74,9 +74,6 @@ function packageJsonPlugin(options?: Options): Plugin {
         originalFileName: metaPath,
         source: finalMetaContent
       });
-    },
-    buildEnd: function (this: PluginContext) {
-      this.info("'package.json' successfully created!");
     }
   };
 }
