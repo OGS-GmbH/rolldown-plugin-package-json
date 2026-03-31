@@ -1,5 +1,5 @@
 {
-  "ignorePatterns": ["dist/**"],
+  "ignorePatterns": ["dist/**", "CHANGELOG.md"],
   "bracketSameLine": true,
   "singleAttributePerLine ": true,
   "sortImports": { "newlinesBetween": false },
