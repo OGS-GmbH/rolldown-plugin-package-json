@@ -1,4 +1,4 @@
 export default {
-  "*.{ts,mts,cts,js,mjs,cjs}": "oxlint",
-  "*.{md,json,json5,jsonc}": "eslint"
+  "*.{ts,tsx,mts,cts,mtsx,ctsx,js,jsx,mjs,cjs,mjsx,cjsx}": "oxlint",
+  "*": "oxfmt --no-error-on-unmatched-pattern"
 };

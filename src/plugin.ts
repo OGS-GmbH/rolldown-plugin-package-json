@@ -22,10 +22,8 @@ const fileName: string = "package.json";
  */
 function packageJsonPlugin(options?: Options): Plugin {
   const metaPath = path.join(process.cwd(), fileName);
-
   const metaContent = fs.readFileSync(metaPath, { encoding: "utf8", flag: "r" });
-
-  const meta = JSON.parse(metaContent) as PackageJson;
+  let meta = JSON.parse(metaContent) as PackageJson;
 
   if (isEnabled(options?.clean)) {
     const properties =
@@ -40,13 +38,6 @@ function packageJsonPlugin(options?: Options): Plugin {
     });
   }
 
-  if (
-    isEnabled(options?.exports) &&
-    typeof options?.exports !== "boolean" &&
-    options?.exports?.override
-  )
-    meta.exports = options.exports.override;
-
   return {
     name: "package-json-plugin",
     generateBundle: async function (
@@ -54,16 +45,20 @@ function packageJsonPlugin(options?: Options): Plugin {
       _outputOptions: NormalizedOutputOptions,
       bundle: OutputBundle
     ): Promise<void> {
-      if (
-        isEnabled(options?.exports) &&
-        (typeof options?.exports === "boolean" || options?.exports?.override === undefined)
-      ) {
+      if (options?.exports) {
         const generatedExports = getExportsFromBundle.call(this, bundle);
 
         if (meta.exports) {
           // @ts-ignore
           meta.exports = merge(meta.exports, generatedExports);
         } else meta.exports = generatedExports;
+      }
+
+      if (options?.override) {
+        meta = {
+          ...meta,
+          ...options.override
+        };
       }
 
       const finalMetaContent = JSON.stringify(meta, null, 2);

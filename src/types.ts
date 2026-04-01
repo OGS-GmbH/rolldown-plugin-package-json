@@ -28,23 +28,6 @@ type CleanOption = {
 };
 
 /**
- * Options for the `exports` feature of the plugin, which allows you to specify a custom `exports` field for the generated `package.json` file.
- *
- * @since 1.0.0
- * @author Simon Kovtyk
- * @category Types
- */
-type ExportsOption = {
-  /**
-   * An object representing the `exports` field to be included in the generated `package.json` file. This will override any automatically generated `exports` field based on the bundle.
-   *
-   * @since 1.0.0
-   * @author Simon Kovtyk
-   */
-  override: PackageJson.Exports;
-};
-
-/**
  * Options for the plugin, which can be used to configure its behavior. Each option can be either a `boolean` to enable/disable the feature or an `Object` with additional configuration.
  *
  * @since 1.0.0
@@ -53,12 +36,19 @@ type ExportsOption = {
  */
 type Options = Partial<{
   /**
+   * An object representing the properties to be overridden in the generated `package.json` file. The properties specified in this object will take precedence over the default values and any values inherited from the root `package.json` file.
+   *
+   * @since 1.1.0
+   * @author Simon Kovtyk
+   */
+  override: PackageJson;
+  /**
    * Options for the `exports` feature of the plugin. See {@link ExportsOption} for more details.
    *
    * @since 1.0.0
    * @author Simon Kovtyk
    */
-  exports: boolean | WithEnabled<ExportsOption>;
+  exports: boolean;
   /**
    * Options for the `clean` feature of the plugin. See {@link CleanOption} for more details.
    *
@@ -68,4 +58,4 @@ type Options = Partial<{
   clean: boolean | WithEnabled<CleanOption>;
 }>;
 
-export type { WithEnabled, CleanOption, ExportsOption, Options };
+export type { WithEnabled, CleanOption, Options };
