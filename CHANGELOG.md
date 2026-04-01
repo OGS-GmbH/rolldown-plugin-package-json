@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/OGS-GmbH/rolldown-plugin-package-json/compare/v1.0.1...v1.1.0) (2026-04-01)
+
+
+### Features
+
+* add global override api ([8f93c93](https://github.com/OGS-GmbH/rolldown-plugin-package-json/commit/8f93c9336876674f7346615e86fc9de85ca4cf62))
+
 ## [1.0.1](https://github.com/OGS-GmbH/rolldown-plugin-package-json/compare/v1.0.0...v1.0.1) (2026-03-31)
 
 
